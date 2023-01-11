@@ -23,7 +23,7 @@ contract TodoList {
         bool completed
     );
     
-    mapping(address => TodoListNode) public todoListMap;
+    mapping(uint256 => TodoListNode) public todoListMap;
 
     constructor() {
         owner = msg.sender;
@@ -34,12 +34,12 @@ contract TodoList {
     }
 
     function createList(string calldata _message) external {
-        inc();
-        TodoListNode storage todoList = todoListMap[msg.sender];
+        TodoListNode storage todoList = todoListMap[_userId];
         todoList.account = msg.sender;
         todoList.userId = _userId;
         todoList.message = _message;
         todoList.completed = false;
+        inc();
 
         msgCreators.push(msg.sender);
         messages.push(_message);
@@ -53,13 +53,13 @@ contract TodoList {
         );
     }
 
-    function getCreatorData(address _address) public view returns(
+    function getCreatorData(uint256 uId) public view returns(
         address,
         uint256,
         string memory,
         bool
     ) {
-        TodoListNode memory todoListMsg = todoListMap[_address];
+        TodoListNode memory todoListMsg = todoListMap[uId];
         return(
             todoListMsg.account,
             todoListMsg.userId,
@@ -76,8 +76,9 @@ contract TodoList {
         return messages;
     }
 
-    function toggle(address _msgCreator) public {
-        TodoListNode storage todoListNode = todoListMap[_msgCreator];
+    function toggle(uint256 uId) public {
+        require(todoListMap[uId].account == msg.sender, "Only user who created the list, can toggle it");
+        TodoListNode storage todoListNode = todoListMap[uId];
         todoListNode.completed = !todoListNode.completed;
     }
 }
