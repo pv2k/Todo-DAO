@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { TodoListContext } from '../context/TodoListApp';
 import Style from '../styles/index.module.css';
 import Loading from '../loading.gif';
+import Metamask from '../MetaMask_Fox.png';
 import Data from '../component/Data';
 
 //Add the functionality of automatic reload upon creation of todo
@@ -38,7 +39,7 @@ const Home = () => {
   return (
     <div className={Style.home}> 
       <div className={Style.navBar}>
-        <Image src={Loading} alt="Loading" width={50} height={50} />
+        <Image src={Metamask} alt="Loading" width={50} height={50} />
         <div className={Style.connect}>
           {!currentAccount ? (
             <button onClick={connectWallet}>Connect Wallet</button>
@@ -60,7 +61,7 @@ const Home = () => {
               ))}
             </div>
         </div>
-        
+
         <div className={Style.home_create}>
           <div className={Style.home_create_box}>
             <h2>Create TodoList on BlockChain</h2>
