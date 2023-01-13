@@ -13,7 +13,6 @@ async function main() {
   await todoList.deployed();
 
   console.log("TodoList contract deployed to: ", todoList.address);
-  console.log(todoList);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -69,7 +69,7 @@
     }
 
     .home_create_input input{
-        width: 90%;
+        width: 95%;
         background-color: transparent;
         border: 0;
         outline: none;
@@ -85,7 +85,7 @@
     }
     .iconBlack{
         color: #231E39;
-        font-size: 1rem;
+        font-size: 1.2rem;
         cursor: pointer;
       
     }
