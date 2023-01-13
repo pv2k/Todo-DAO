@@ -1,13 +1,12 @@
-# Sample Hardhat Project
+# Todo Web3 APP
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Contains the code of todo smart contract and web application built to connect with the contract. User can create a to-do list entry on the goerli blockchain. And later toggle the created entry to complete state or move it to not-done. 
+A user can see all the to-do list entries created by all the users, but he can only toggle the entries that are created by himself. 
 
-Try running some of the following tasks:
+Yet to implement - Listening to events emitted from the contract and, in response, refreshing the page whenever a new entry is made.
 
+To run on the local machine
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+npm install
+npm run dev
 ```
