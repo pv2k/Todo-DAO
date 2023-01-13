@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { IoIosSend, IoMdClose } from "react-icons/io";
+import { IoIosSend, IoMdClose, IoIosCheckmarkCircle } from "react-icons/io";
 import { AiFillLock, AiFillUnlock } from "react-icons/ai";
-
+import { GiCircle } from "react-icons/gi";
 import Style from '../styles/index.module.css';
 
 const Data = ({allTodoList, allAddress, myList, toggleFunction}) => {
@@ -21,9 +21,9 @@ const Data = ({allTodoList, allAddress, myList, toggleFunction}) => {
                                 <p>{el[2]}</p>
                             </div>
                             {el[3] === false ? (
-                                <IoMdClose className={Style.iconClose} onClick={() => toggleFunction(el[1])} />
+                                <GiCircle className={Style.iconClose} onClick={() => toggleFunction(el[1])} />
                             ) : (
-                                <p className={Style.done}>Done</p>
+                                <IoIosCheckmarkCircle className={Style.iconClose} onClick={() => toggleFunction(el[1])} />
                             )}
                         </div>
                     ))}

@@ -56,7 +56,11 @@ const Home = () => {
               {myList.map((el, id) => (
                 <div className={Style.home_completed_list} key={id}> 
                   <MdVerified className='Style.iconColor' />
-                  <p>{el.slice(0,30)}...</p>
+                  {el.length > 30 ? (
+                    <p>{el.slice(0,30)}...</p>
+                  ) : (
+                    <p>{el}</p>
+                  )}
                 </div>
               ))}
             </div>
